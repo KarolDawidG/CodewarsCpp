@@ -4,33 +4,38 @@
 #include <vector>
 #include <bits/stdc++.h>
 
-//using namespace std;
+void descendingOrder(int &a)
+{
+std::vector<int> arrayNum;
+int division = 10;
+int rest{};
+int lengthNum{};
+lengthNum = std::to_string(a).length();
+
+for (int i=1; i<lengthNum+1; i++)
+{
+    rest = a % division;
+    a = a/division;
+    if (rest < 0){rest=rest*10;}
+    arrayNum.push_back(rest);
+}
+sort(arrayNum.begin(), arrayNum.end());
+std::stringstream result;
+std::copy(arrayNum.begin(), arrayNum.end(), std::ostream_iterator<int>(result, ""));
+std::string sortNum = result.str().c_str();
+std::cout<<sortNum<<std::endl;
+}
+
 int main()
 {
-std::vector<int> tab;
-int liczba{};
+int a{};
 std::cout<<"Podaj cyfre: ";
-std::cin>>liczba;
-int dzielenie = 10;
-int reszta{};
-int dlugoscNum{};
-dlugoscNum = std::to_string(liczba).length();
+std::cin>>a;
+descendingOrder(a);
 
-for (int i=1; i<dlugoscNum+1; i++)
-{
-    reszta = liczba % dzielenie;
-    liczba = liczba/dzielenie;
-    if (reszta < 0){reszta=reszta*10;}
-    tab.push_back(reszta);
+     return 0;
 }
 
-sort(tab.begin(), tab.end());
-std::stringstream result;
-std::copy(tab.begin(), tab.end(), std::ostream_iterator<int>(result, ""));
 
 
-std::string wynik = result.str().c_str();
-std::cout<<wynik<<std::endl;
 
- return 0;
-}
