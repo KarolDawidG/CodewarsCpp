@@ -4,10 +4,10 @@
 #include <vector>
 #include <bits/stdc++.h>
 
-void descendingOrder(int &a)
+uint64_t descendingOrder(uint64_t &a)
 {
-std::vector<int> arrayNum;
-int division = 10;
+std::vector<uint64_t> arrayNum;
+uint64_t division = 10;
 int rest{};
 int lengthNum{};
 lengthNum = std::to_string(a).length();
@@ -19,23 +19,26 @@ for (int i=1; i<lengthNum+1; i++)
     if (rest < 0){rest=rest*10;}
     arrayNum.push_back(rest);
 }
-sort(arrayNum.begin(), arrayNum.end());
-std::stringstream result;
-std::copy(arrayNum.begin(), arrayNum.end(), std::ostream_iterator<int>(result, ""));
-std::string sortNum = result.str().c_str();
-std::cout<<sortNum<<std::endl;
+sort(arrayNum.begin(), arrayNum.end(), std::greater<uint64_t>());
+
+reverse(arrayNum.begin(), arrayNum.end());
+int decimal = 1;
+int total = 0;
+for (auto& it : arrayNum)
+{
+    total += it * decimal;
+    decimal *= 10;
+}
+a = total;
+return a;
 }
 
 int main()
 {
-int a{};
-std::cout<<"Podaj cyfre: ";
+uint64_t a{};
+std::cout<<"Type some number: ";
 std::cin>>a;
-descendingOrder(a);
 
+std::cout<<"Result after sorting: "<<descendingOrder(a)<<std::endl;
      return 0;
 }
-
-
-
-
