@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1666201105 source:c:\programowanie\3) c++\2) projekty okolo studenckie\nowe\przypomnienie\main.cpp
+	<iostream>
+	<cstdlib>
+	<math.h>
+	<vector>
+	<bits/stdc++.h>
+
