@@ -8,7 +8,7 @@ uint64_t descendingOrder(uint64_t &a)
 {
 std::vector<uint64_t> arrayNum;
 uint64_t division = 10;
-int rest{};
+uint64_t rest{};
 int lengthNum{};
 lengthNum = std::to_string(a).length();
 
@@ -20,7 +20,6 @@ for (int i=1; i<lengthNum+1; i++)
     arrayNum.push_back(rest);
 }
 sort(arrayNum.begin(), arrayNum.end(), std::greater<uint64_t>());
-
 reverse(arrayNum.begin(), arrayNum.end());
 int decimal = 1;
 int total = 0;
